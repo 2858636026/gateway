@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <global>
+        <http>
+            <!--服务端口-->
+            <property name="port" value="81"/>
+            <!--主网关地址,可配置外网-->
+            <!--<property name="address" value="127.0.0.1"/>-->
+            <!--bootstrap.group(bossGroup, workerGroup)-->
+            <!--处理与客户端的连接请求-->
+            <property name="bossGroup" value="2"/>
+            <!--处理客户端连接的io操作-->
+            <property name="workerGroup" value="20"/>
+        </http>
+        <zookeeper>
+            <!--zookeeper地址-->
+            <property name="address" value="mini1:2181,mini2:2181,mini3:2181"/>
+            <!--zookeeper超时时间-->
+            <property name="sessionTimeout" value="3000"/>
+            <!--在zk中创建保存主节点数据的目录,必须使用二级目录 /***/***-->
+            <property name="masterPath" value="/plugin/master"/>
+            <!--心跳检测时间间隔-->
+            <property name="masterChickTimeMs" value="70000000"/>
+        </zookeeper>
+        <!--type="debug" 表示请求plugin的时候直接请求本地假数据返回-->
+        <plugin >
+            <!--注册的服务服务名称与token-->
+            <property name="sdk" value="1234567"/>
+            <property name="server" value="1234567"/>
+            <property name="net" value="1234567"/>
+        </plugin>
+        <gateway>
+            <!--缓存路径-->
+            <property name="saveDisk" value="C:\Users\admin\Desktop\gateway\data"/>
+            <!--本地数据缓存检测时间,单位ms,多久检测一次本地缓存文件是否过期-->
+            <property name="ms" value="10000"/>
+            <!--任何请求的请求限流默认值-->
+            <property name="maxServicesNumber" value="50"/>
+            <!--转发次数上限-->
+            <property name="forwardinglimit" value="5"/>
+        </gateway>
+        <!--表示不使用token校验-->
+        <token type="debug">
+            <property name="tokenUrl" value="http://*******/check"/>
+        </token>
+    </global>
+</configuration>

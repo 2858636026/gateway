@@ -1,0 +1,5 @@
+[{
+         "serviceType":"datasource",
+         "serviceName":"datasource.sdk.crash",
+         "cacheTimeMs":10000
+ }]

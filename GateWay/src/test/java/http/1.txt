@@ -1,0 +1,5 @@
+{
+	"sql": " SELECT  appid appId, district district, sum(request_num) requestNum, sum(request_num)+sum(error_num) totalRequestNum FROM    datasource_sdk_netPerformance  WHERE    appid = 11451    AND monitor_time >= '20181113130000'    AND monitor_time < '20181113140000'  AND protocol =1 GROUP BY    appid,    district",
+	"version": 2.6,
+	"privateParams": {}
+}
